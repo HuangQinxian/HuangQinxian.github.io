@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OLIVER</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .container{
+            position: absolute;
+            width: 100%;
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container-search{
+            width: 90%;
+            height: 120px;
+            margin: 10px auto;
+        }
+
+        .textInput{
+            display: block;
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            padding-left: 5px;
+            border: 1px solid black;
+            outline: none;
+        }
+
+        .submitButton{
+            width: 60px;
+            height: 32px;
+            line-height: 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        function init(){
+            document.getElementById("wd").focus();
+        }
+
+        function doSubmit(){
+            var wdEle = document.getElementById("wd");
+            if(wdEle.value.length == 0){
+                return false;
+            }
+            document.searchForm.submit();
+        }
+    </script>
+</head>
+<body onload="init();">
+    <div class="container">
+        <div class="container-search">
+            <form name="searchForm" action="https://www.baidu.com/s" method="get">
+                <input type="text" name="wd" id="wd" class="textInput"/>
+            </form>
+        </div>
+        <div class="submitButton" onclick="doSubmit();">搜索</div>
+    </div>
+</body>
+</html>
